@@ -4,8 +4,11 @@ import 'package:ChatApp/screens/login_screen.dart';
 import 'package:ChatApp/screens/registration_screen.dart';
 import 'package:ChatApp/screens/chat_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await DotEnv().load('.env');
   runApp(FlashChat());
 }
